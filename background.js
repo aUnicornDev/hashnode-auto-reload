@@ -24,7 +24,10 @@ chrome.action.onClicked.addListener((draftTab)=>{
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-      if (request.joke === "Knock knock")
+      console.log(sender.tab.id);
+      console.log(request.previewTabId);
+
+      if (request.joke === "Knock knock" && request.previewTabId)
       chrome.tabs.reload(
         request.previewTabId
                     
