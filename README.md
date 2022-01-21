@@ -31,3 +31,5 @@ Clone the project
 - This will open up the Draft Preview for the Hashnode Article in a new tab in a new window.
 
 - As you make change to the `Write` section of the extension, the Draft Preview will reload(with a bit of delay after you stop typing). 
+
+You can check more about it [here](https://aunicorndev.hashnode.dev/introducing-hashnode-auto-reload-extension) !!
