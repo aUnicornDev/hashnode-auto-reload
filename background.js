@@ -1,4 +1,3 @@
-console.log("Ehat")
 chrome.action.onClicked.addListener((draftTab)=>{
 
     
@@ -8,30 +7,23 @@ chrome.action.onClicked.addListener((draftTab)=>{
         
         newTabUrl = tabUrl.href.replace('draft','preview');
 
-    }
-    chrome.windows.create({
-        url: newTabUrl 
-      },(previewTab)=>{
-          
-        chrome.tabs.sendMessage(draftTab.id, {message: "previewTab",previewTabId:previewTab.tabs[0].id}, function(response) {
+        chrome.windows.create({
+            url: newTabUrl 
+          },(previewTab)=>{
               
-        });
-          
-      });
+            chrome.tabs.sendMessage(draftTab.id, {message: "previewTab",previewTabId:previewTab.tabs[0].id})
+              
+          });
+    }
 
 
 });
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-      console.log(sender.tab.id);
-      console.log(request.previewTabId);
-
       if (request.joke === "Knock knock" && request.previewTabId)
       chrome.tabs.reload(
-        request.previewTabId
-                    
+        request.previewTabId                    
         )
-        sendResponse({farewell: "goodbye"});
     }
   );

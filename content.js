@@ -11,9 +11,7 @@ myInput.addEventListener('input', () => {
 
 function doneTyping () {
 
-    chrome.runtime.sendMessage({joke: "Knock knock",previewTabId:window.previewTabId}, function(response) {
-        console.log(response.farewell);
-      });
+    chrome.runtime.sendMessage({joke: "Knock knock",previewTabId:window.previewTabId})
 
 
 }
